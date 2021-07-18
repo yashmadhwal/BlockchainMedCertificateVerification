@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="HospitalInput">
+    <form id='HosInput' action="">
+      <div class="fromRows">
+        <div class="formField">
+          Vaccine Number:
+          <input type="text" name="Vnumber" value="">
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Name:
+          <input type="text" name="Hname" value="">
+        </div>
+      </div>
+
+      <!-- <div class="fromRows">
+        <div class="formField">
+          Hospital Address:
+          <input type="text" name="Haddr" value="">
+        </div>
+      </div> -->
+
+      <!-- <div class="fromRows">
+        <div class="formField">
+          Hospital ID:
+          <select name="VaccineRespose" id="VaccineRespose">
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
+      </div> -->
+
+      <!-- <div class="fromRows">
+        <div class="formField">
+          Vaccine Name:
+          <select name="price">
+            <option value="3">None</option>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="fromRows">
+        <div class="formField">
+          Hospital Address:
+          <input type="text" name="Haddr" value="">
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Hospital Pvt Key:
+          <input type="password" name="HpvtK" value="">
+        </div>
+      </div>
+      <br>
+      <button>Vaccinate</button>
+    </form>
+    <p>Note that on clicking vaccine Person, A full vaccination will be considered and QR Report certificate will be created, all information about the hospital will be taken from the blockchain, and the vaccination transaction will automatically timestamped</p>
+  </div>
+{% endblock %}

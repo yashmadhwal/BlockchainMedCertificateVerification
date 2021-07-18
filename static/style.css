@@ -1,0 +1,72 @@
+*{
+  /* border:1px solid; */
+  font-size: 30px;
+  /* width: 1000px; */
+  margin: auto;
+}
+
+h1{
+  font-size: 50px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#subTagline{
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+  letter-spacing: 2px;
+  margin:5px 0px 30px 0px;
+}
+
+/* Navigation */
+.Nav{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navDecor{
+  text-align: center;
+  background-color:orange;
+  color:black;
+  text-decoration: none;
+  width: 200px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  transition: transform .2s;
+}
+
+.navDecor:hover{
+  transform: scale(1.1);
+}
+
+/* Form */
+input{
+  width: 280px;
+}
+
+#HospitalInput{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.fromRows{
+  display: flex;
+  /* width: 500px; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.formField{
+ 
+  
+}
+
+.formInput{
+  
+}
+
+body{
+  background-color:#EBE8E2;
+}

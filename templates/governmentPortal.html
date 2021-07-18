@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="HospitalInput">
+    <form id='HosInput' action="">
+      <div class="fromRows">
+        <div class="formField">
+          Hospital ID:
+          <input type="text" name="Hid" value="">
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Hospital Name:
+          <input type="text" name="Hname" value="">
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Hospital Address:
+          <input type="text" name="Haddr" value="">
+        </div>
+      </div>
+      <div class="fromRows">
+        <div class="formField">
+          Vacciner:
+          <select name="VaccineRespose" id="VaccineRespose">
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Vaccine Name:
+          <select name="price">
+            <option value="3">None</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Ministry Address:
+          <input type="text" name="Mname" value="">
+        </div>
+      </div>
+
+      <div class="fromRows">
+        <div class="formField">
+          Ministry Pvt Key:
+          <input type="password" name="Mkey" value="">
+        </div>
+      </div>
+      <br>
+      <button>Submit</button>
+    </form>
+  </div>
+{% endblock %}
