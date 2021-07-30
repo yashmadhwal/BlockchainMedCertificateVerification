@@ -26,6 +26,7 @@ contract MOSGOVCOVIDQR{
         uint _numberOfVaccinesRollOut;
     }
 
+
     mapping (uint => PublicRegistryOR) public PublicBook;
     struct PublicRegistryOR{
 
@@ -43,9 +44,18 @@ contract MOSGOVCOVIDQR{
     }
 
 
-    function registerHospital(address _hospitalAddress, string memory _hospitalName) public onlyOwner{
+    function registerHospital(string memory _hospitalName, address _hospitalAddress, string memory _vaccineName, bool _isVacciner) public onlyOwner{
+
+        require(HospitalRegistry[_hospitalAddress].registrationCertificate == 0, 'Hospital Id busy!');
         require(HospitalRegistry[_hospitalAddress].registeredVacciner == false,"Hospital Already Registered!");
-        HospitalRegistry[_hospitalAddress] = HospitalClinic(hospitalId,_hospitalName,_hospitalAddress,'SputnikV',true,0);
+
+        // inputing Hospital details:
+        // HospitalRegistry[_hospitalAddress]. = HospitalClinic(hospitalId,_hospitalName,_hospitalAddress,'SputniV',true,0);
+        HospitalRegistry[_hospitalAddress].registrationCertificate = hospitalId;
+        HospitalRegistry[_hospitalAddress].name = _hospitalName;
+        HospitalRegistry[_hospitalAddress].hospitalAddress = _hospitalAddress;
+        HospitalRegistry[_hospitalAddress].vaccineName = _vaccineName;
+        HospitalRegistry[_hospitalAddress].registeredVacciner = _isVacciner;
         hospitalId++;
     }
 

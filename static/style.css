@@ -26,6 +26,8 @@ h1{
 }
 
 .navDecor{
+  margin-top:2px;
+  margin-bottom: 2px;
   text-align: center;
   background-color:orange;
   color:black;
@@ -59,12 +61,18 @@ input{
 }
 
 .formField{
- 
-  
+
+
 }
 
 .formInput{
-  
+
+}
+
+#qrcode {
+  width:160px;
+  height:160px;
+  margin-top:15px;
 }
 
 body{

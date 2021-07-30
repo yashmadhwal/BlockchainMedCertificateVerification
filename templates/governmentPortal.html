@@ -1,33 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="HospitalInput">
-    <form id='HosInput' action="">
+    <form method = "POST" action="/Government" id='HosInput'>
+
       <div class="fromRows">
         <div class="formField">
-          Hospital ID:
-          <input type="text" name="Hid" value="">
+          <!-- Hospital Name: -->
+          <input type="text" name="Hname" value="" placeholder = 'Name' required>
         </div>
       </div>
 
       <div class="fromRows">
         <div class="formField">
-          Hospital Name:
-          <input type="text" name="Hname" value="">
-        </div>
-      </div>
-
-      <div class="fromRows">
-        <div class="formField">
-          Hospital Address:
-          <input type="text" name="Haddr" value="">
+          <!-- Hospital Address: -->
+          <input type="text" name="Haddr" value="" placeholder = 'Wallet Address' required>
         </div>
       </div>
       <div class="fromRows">
         <div class="formField">
           Vacciner:
-          <select name="VaccineRespose" id="VaccineRespose">
-            <option value="false">False</option>
-            <option value="true">True</option>
+          <select name="VaccineRespose" id="VaccineRespose" required>
+            <option value="False">False</option>
+            <option value="True">True</option>
           </select>
         </div>
       </div>
@@ -36,26 +30,30 @@
         <div class="formField">
           Vaccine Name:
           <select name="price">
-            <option value="3">None</option>
+            <option value="None">None</option>
           </select>
         </div>
       </div>
 
       <div class="fromRows">
         <div class="formField">
-          Ministry Address:
-          <input type="text" name="Mname" value="">
+          <!-- Ministry Address: -->
+          <input type="text" name="Mname" value="" placeholder = 'Ministry Address' required>
         </div>
       </div>
 
       <div class="fromRows">
         <div class="formField">
-          Ministry Pvt Key:
-          <input type="password" name="Mkey" value="">
+          <!-- Ministry Pvt Key: -->
+          <input type="password" name="Mkey" value="" placeholder="Ministry Pvt Key">
         </div>
       </div>
       <br>
-      <button>Submit</button>
+      <div class="input-group">
+            <input type="submit" id='PillBtn' value="Register Hospital"/>
+        </div>
     </form>
+
+
   </div>
 {% endblock %}

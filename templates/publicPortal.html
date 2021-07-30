@@ -1,4 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div id="HospitalInput">
 <p>Here you can see vaccination inforamtion</p>
+
+<form method = "POST" action="/Verification" id='HosInput'>
+
+
+  <div class="fromRows">
+    <div class="formField">
+      Certifcate Number:
+      <input type="text" name="certificate_number" value="" required>
+    </div>
+  </div>
+
+  <br>
+  <input type="submit" id='PillBtn' value="Verify"/>
+</form>
+
+data: {{certificate_Number}}
+</div>
 {% endblock %}

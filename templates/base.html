@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <!-- <link rel="stylesheet" href="../static/style.css"> -->
+  <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
   <title>STRIP Medicine</title>
 </head>
 
@@ -18,7 +19,7 @@
   <div class="Nav">
     <a class='navDecor' href="{{ url_for('Government') }}">Government</a>
     <a class='navDecor' href="{{ url_for('hospital') }}">Hospitals</a>
-    <a class='navDecor' href="{{ url_for('public') }}">Verification</a>
+    <a class='navDecor' href="{{ url_for('verification') }}">Verification</a>
   </div>
   {% block content %}{% endblock %}
   <!-- Hospital Information -->
@@ -27,14 +28,15 @@
 </body>
 <script>
   const prices = {
-    "false": [{ value: 3, desc: "--None--" }],
-    "true": [{ value: 3, desc: "Sputnik V" }, { value: 5, desc: "Sputnik Lite" }]
+    "False": [{ value: 'None', desc: "--None--" }],
+    "True": [{ value: "Sputnik V", desc: "Sputnik V" }, { value: "Sputnik Lite", desc: "Sputnik Lite" }]
   }
 
   const price = document.querySelector('[name=price]');
   document.querySelector('[name=VaccineRespose]').addEventListener('change', function (e) {
     price.innerHTML = prices[this.value].reduce((acc, elem) => `${acc}<option value="${elem.value}">${elem.desc}</option>`, "");
   });
+
 </script>
 
 </html>
