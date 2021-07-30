@@ -85,14 +85,18 @@ def verification():
             certificate_data = contract.functions.PublicBook(certificate_Number).call()
             if certificate_data[0] == 0:
                 reponse_data = "Opps!! Your Vaccine is not registered!"
+                return render_template('publicPortal.html',certificate_Number = reponse_data)
 
             else:
                 reponse_data = certificate_data
+                return render_template('publicPortal.html',certificate_Number = 'Certificate: ' + str(reponse_data[0]), UserName = 'Name: ' + reponse_data[1], TimeStamp = 'TimeStamp: ' + str(reponse_data[2]), HospitalID = 'Hospital ID: ' + str(reponse_data[3]), HospitalAddress = 'Hospital Name: ' + str(reponse_data[4]), Vaccine = 'Vaccine Type: ' + str(reponse_data[6]))
+
+
         except ValueError as e:
             message = ast.literal_eval(str(e))['message']
             return render_template('contract_error.html', error=message)
 
-        return render_template('publicPortal.html',certificate_Number = reponse_data)
+
     else:
         return render_template('publicPortal.html')
     # print(w3.isConnected())
