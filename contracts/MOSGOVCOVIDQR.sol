@@ -59,14 +59,14 @@ contract MOSGOVCOVIDQR{
         hospitalId++;
     }
 
-    function VaccinatePeople() public onlyRegisteredHospital{
+    function VaccinatePeople(string memory _name) public onlyRegisteredHospital{
         // attaining hospital's information
         uint _registrationCertificate = HospitalRegistry[msg.sender].registrationCertificate;
         string memory _hospitalName = HospitalRegistry[msg.sender].name;
         address _hopitalAddress = HospitalRegistry[msg.sender].hospitalAddress;
         string memory _vaccineName = HospitalRegistry[msg.sender].vaccineName;
 
-        PublicBook[vaccineCard] = PublicRegistryOR(vaccineCard,'SomeName',now,_registrationCertificate,_hospitalName,_hopitalAddress,_vaccineName);
+        PublicBook[vaccineCard] = PublicRegistryOR(vaccineCard,_name,now,_registrationCertificate,_hospitalName,_hopitalAddress,_vaccineName);
 
         // increment Vaccine RollOuts
         HospitalRegistry[msg.sender]._numberOfVaccinesRollOut++;
