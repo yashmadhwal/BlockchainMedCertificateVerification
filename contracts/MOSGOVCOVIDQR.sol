@@ -1,4 +1,5 @@
-pragma solidity <0.6.5;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
 contract MOSGOVCOVIDQR{
 
@@ -7,7 +8,7 @@ contract MOSGOVCOVIDQR{
     uint public hospitalId;
     uint public vaccineCard;
 
-    constructor() public {
+    constructor() {
         healthMinistry = msg.sender;
         hospitalId = 1;
         vaccineCard = 1;
@@ -66,7 +67,7 @@ contract MOSGOVCOVIDQR{
         address _hopitalAddress = HospitalRegistry[msg.sender].hospitalAddress;
         string memory _vaccineName = HospitalRegistry[msg.sender].vaccineName;
 
-        PublicBook[vaccineCard] = PublicRegistryOR(vaccineCard,_name,now,_registrationCertificate,_hospitalName,_hopitalAddress,_vaccineName);
+        PublicBook[vaccineCard] = PublicRegistryOR(vaccineCard,_name,block.timestamp,_registrationCertificate,_hospitalName,_hopitalAddress,_vaccineName);
 
         // increment Vaccine RollOuts
         HospitalRegistry[msg.sender]._numberOfVaccinesRollOut++;
