@@ -58,10 +58,11 @@ def Government():
 def hospital():
     if request.method == 'POST':
         print(web3.isConnected())
+        Customer_name =request.form.get('Customer_name')
         hospital_address = request.form.get("Haddr")
         print(hospital_address)
         try:
-            bid_txn_hash = contract.functions.VaccinatePeople().transact({'from':hospital_address})
+            bid_txn_hash = contract.functions.VaccinatePeople(Customer_name).transact({'from':hospital_address})
             tx_receipt = web3.eth.waitForTransactionReceipt(bid_txn_hash.hex())
             #print(tx_receipt)
             # logs = manufacturer_contract.events.PillCreated().processReceipt(tx_receipt)
@@ -84,7 +85,7 @@ def verification():
         try:
             certificate_data = contract.functions.PublicBook(certificate_Number).call()
             if certificate_data[0] == 0:
-                reponse_data = "Opps!! Your Vaccine is not registered!"
+                reponse_data = "Oops!! Your Vaccine is not registered!"
                 return render_template('publicPortal.html',certificate_Number = reponse_data)
 
             else:
