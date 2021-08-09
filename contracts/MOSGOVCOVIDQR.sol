@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/// @author Yash Madhwal
+/// @title CoVID-19 Vaccination Certificate SupplyVerification Based on Blockchain
 contract MOSGOVCOVIDQR{
 
     address public healthMinistry;
-
     uint public hospitalId;
     uint public vaccineCard;
 
@@ -14,7 +15,7 @@ contract MOSGOVCOVIDQR{
         vaccineCard = 1;
     }
 
-    mapping (address => HospitalClinic) public HospitalRegistry;
+    mapping(address => HospitalClinic) public HospitalRegistry;
     struct HospitalClinic{
         uint registrationCertificate;
         string name;
@@ -28,7 +29,7 @@ contract MOSGOVCOVIDQR{
     }
 
 
-    mapping (uint => PublicRegistryOR) public PublicBook;
+    mapping(uint => PublicRegistryOR) public PublicBook;
     struct PublicRegistryOR{
 
         // QR information
@@ -44,9 +45,18 @@ contract MOSGOVCOVIDQR{
 
     }
 
-
-    function registerHospital(string memory _hospitalName, address _hospitalAddress, string memory _vaccineName, bool _isVacciner) public onlyOwner{
-
+    /// Register Hospital to vaccinate.
+    /// @param values to store _hospitalName, _hospitalAddress, _vaccineName, _isVacciner
+    /// @dev stores the parameters in key _hospitalAddress
+    function registerHospital(
+      string memory _hospitalName,
+      address _hospitalAddress,
+      string memory _vaccineName,
+      bool _isVacciner
+    )
+    public
+    onlyOwner
+    {
         require(HospitalRegistry[_hospitalAddress].registrationCertificate == 0, 'Hospital Id busy!');
         require(HospitalRegistry[_hospitalAddress].registeredVacciner == false,"Hospital Already Registered!");
 
@@ -60,7 +70,11 @@ contract MOSGOVCOVIDQR{
         hospitalId++;
     }
 
-    function VaccinatePeople(string memory _name) public onlyRegisteredHospital{
+
+    /// Registered hospital to vaccinate people.
+    /// @param values to store _name of the person getting vaccinated
+    /// @dev stores the parameters in key against vaccineCard of the hospital making vaccines.
+    function VaccinatePeople(string memory _name) public onlyRegisteredHospital {
         // attaining hospital's information
         uint _registrationCertificate = HospitalRegistry[msg.sender].registrationCertificate;
         string memory _hospitalName = HospitalRegistry[msg.sender].name;
