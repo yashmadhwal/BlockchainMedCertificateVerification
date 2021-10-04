@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-/// @author Yash Madhwal
-/// @title CoVID-19 Vaccination Certificate SupplyVerification Based on Blockchain
+// @author Yash Madhwal
+// @title CoVID-19 Vaccination Certificate SupplyVerification Based on Blockchain
 contract MOSGOVCOVIDQR{
 
     address public healthMinistry;
@@ -45,9 +45,9 @@ contract MOSGOVCOVIDQR{
 
     }
 
-    /// Register Hospital to vaccinate.
-    /// @param values to store _hospitalName, _hospitalAddress, _vaccineName, _isVacciner
-    /// @dev stores the parameters in key _hospitalAddress
+    // Register Hospital to vaccinate.
+    // @param values to store _hospitalName, _hospitalAddress, _vaccineName, _isVacciner
+    // @dev stores the parameters in key _hospitalAddress
     function registerHospital(
       string memory _hospitalName,
       address _hospitalAddress,
@@ -71,9 +71,9 @@ contract MOSGOVCOVIDQR{
     }
 
 
-    /// Registered hospital to vaccinate people.
-    /// @param values to store _name of the person getting vaccinated
-    /// @dev stores the parameters in key against vaccineCard of the hospital making vaccines.
+    // Registered hospital to vaccinate people.
+    // @param values to store _name of the person getting vaccinated
+    // @dev stores the parameters in key against vaccineCard of the hospital making vaccines.
     function VaccinatePeople(string memory _name) public onlyRegisteredHospital {
         // attaining hospital's information
         uint _registrationCertificate = HospitalRegistry[msg.sender].registrationCertificate;
